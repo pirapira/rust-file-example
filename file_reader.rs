@@ -1,5 +1,5 @@
 use std::io::fs::File;
-use std::io::{Open, Read, SeekEnd};
+use std::io::{Open, Read, SeekEnd, SeekSet};
 use std::mem::size_of;
 
 fn main() {
@@ -14,6 +14,7 @@ fn main() {
                 fail!()
             }
             else{
+                f.seek(0, SeekSet);
                 let num0 = f.read_be_u64();
                 let num1 = f.read_be_u64();
                 println(num0.to_str());
