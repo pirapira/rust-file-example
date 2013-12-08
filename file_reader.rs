@@ -1,0 +1,24 @@
+use std::io::fs::File;
+use std::io::{Open, Read, SeekEnd};
+use std::mem::size_of;
+
+fn main() {
+    let f = File::open_mode(~Path::new("./test.dat"), Open, Read);
+
+    match f {
+        None => fail!(),
+        Some(f) => {
+            let mut f = f;
+            f.seek(0, SeekEnd);
+            if (f.tell() < (2 * size_of::<u64>()) as u64) {
+                fail!()
+            }
+            else{
+                let num0 = f.read_be_u64();
+                let num1 = f.read_be_u64();
+                println(num0.to_str());
+                println(num1.to_str())
+            }
+        }
+    }
+}
