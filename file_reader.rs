@@ -20,6 +20,6 @@ fn main() {
                 println(num0.to_str());
                 println(num1.to_str())
             }
-        }
+        } // file closed???
     }
 }

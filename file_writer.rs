@@ -14,6 +14,6 @@ fn main() {
             let mut f = f; // a trick
             f.write_be_u64(num0);
             f.write_be_u64(num1)
-        }
+        } // file closed???
     }
 }
